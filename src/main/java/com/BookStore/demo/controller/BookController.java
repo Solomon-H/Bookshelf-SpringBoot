@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import com.BookStore.demo.Entity.Book;
 import com.BookStore.demo.Entity.MyBookList;
 import com.BookStore.demo.service.BookService;
 import com.BookStore.demo.service.MyBookListService;
-
 
 @Controller
 public class BookController {
@@ -25,7 +25,13 @@ public class BookController {
     @Autowired
     private MyBookListService myBookService;
 
-    @GetMapping("/")
+    @GetMapping("/hey")
+    public String hey() {
+        return "hey";
+    }
+
+
+    @GetMapping("")
     public String home() {
         return "home";
     }
@@ -74,5 +80,6 @@ public class BookController {
         service.deleteById(id);
         return "redirect:/available_books";
     }
+
 }
 
